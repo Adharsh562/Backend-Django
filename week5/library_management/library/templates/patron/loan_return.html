@@ -1,0 +1,16 @@
+{% extends "library/base.html" %}
+
+{% block content %}
+  <h1>Return Loan</h1>
+  <p><strong>Book:</strong> {{ loan.book.title }}</p>
+  <p><strong>Patron:</strong> {{ loan.patron.first_name }} {{ loan.patron.last_name }}</p>
+  <p><strong>Check-out Date:</strong> {{ loan.check_out_date }}</p>
+  <p><strong>Due Date:</strong> {{ loan.due_date }}</p>
+  <form method="post">
+    {% csrf_token %}
+    <label for="return_date">Return Date:</label>
+    <input type="date" name="return_date" required>
+    <button type="submit">Return</button>
+  </form>
+  <a href="{% url 'loan_list' %}">Cancel</a>
+{% endblock %}

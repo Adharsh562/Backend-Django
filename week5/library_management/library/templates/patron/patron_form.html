@@ -1,0 +1,11 @@
+{% extends "library/base.html" %}
+
+{% block content %}
+  <h1>{% if patron.id %}Edit Patron{% else %}Add Patron{% endif %}</h1>
+  <form method="post">
+    {% csrf_token %}
+    {{ form.as_p }}
+    <button type="submit">Save</button>
+  </form>
+  <a href="{% url 'patron_list' %}">Cancel</a>
+{% endblock %}

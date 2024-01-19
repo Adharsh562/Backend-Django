@@ -1,0 +1,24 @@
+{% extends "library/base.html" %}
+
+{% block content %}
+  <h1>Loan List</h1>
+  <table>
+    <tr>
+      <th>Book</th>
+      <th>Patron</th>
+      <th>Check-out Date</th>
+      <th>Due Date</th>
+      <th>Return Date</th>
+    </tr>
+    {% for loan in loans %}
+      <tr>
+        <td>{{ loan.book.title }}</td>
+        <td>{{ loan.patron.first_name }} {{ loan.patron.last_name }}</td>
+        <td>{{ loan.check_out_date }}</td>
+        <td>{{ loan.due_date }}</td>
+        <td>{{ loan.return_date }}</td>
+      </tr>
+    {% endfor %}
+  </table>
+  <a href="{% url 'loan_create' %}">Add a Loan</a>
+{% endblock %}

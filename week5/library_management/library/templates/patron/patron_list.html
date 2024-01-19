@@ -1,0 +1,11 @@
+{% extends "library/base.html" %}
+
+{% block content %}
+  <h1>Patron List</h1>
+  <ul>
+    {% for patron in patrons %}
+      <li><a href="{% url 'patron_detail' patron.id %}">{{ patron.first_name }} {{ patron.last_name }}</a></li>
+    {% endfor %}
+  </ul>
+  <a href="{% url 'patron_create' %}">Add a Patron</a>
+{% endblock %}

@@ -1,0 +1,12 @@
+{% extends "library/base.html" %}
+
+{% block content %}
+  <h1>Loan Detail</h1>
+  <p><strong>Book:</strong> {{ loan.book.title }}</p>
+  <p><strong>Patron:</strong> {{ loan.patron.first_name }} {{ loan.patron.last_name }}</p>
+  <p><strong>Check-out Date:</strong> {{ loan.check_out_date }}</p>
+  <p><strong>Due Date:</strong> {{ loan.due_date }}</p>
+  <p><strong>Return Date:</strong> {{ loan.return_date }}</p>
+  <a href="{% url 'loan_list' %}">Back to Loan List</a>
+{% endblock %}
+
